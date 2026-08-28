@@ -66,18 +66,59 @@ CATALOGO DE FILMES */
 
 }
 
-.filme img {
+ .filme img {
     /* se o card aumentar ou diminuir, a imagem acompanha */
-    width: 100%;  /*Largura */
+    width: 100%;
+    /*Largura */
 
-    height: 160px;   /*Altura fixa*/
+    height: 160px;
+    /*Altura fixa*/
     /* faz a imagem preencher todo o espaço definido sem ficar esticada ou deformada. se necessario, corta um pouco mais das laterais ou de cima/baixo */
     object-fit: cover;
 
 }
 
 .filme h3,
-.filme p
-{
+.filme p {
     padding: 10px;
+}
+
+.destaque-grid {
+    grid-template-rows: repeat(2, 180px);
+
+    /* Comportamento implicito do grid -> Criar mais linhas automaticamente. */
+    /* As linhas que o grid criar automaticamente, também terão 180px */
+    grid-auto-rows: 180px;
+}
+
+.destaque-grid .filme {
+    display: grid;
+
+    /* AUTO serve para ocupar o mínimo de espaço possível para o elemento aparecer na tela, e nesse caso, o 1fr serve para o outro elemento ocupar o espaço que sobrou */
+    /* A imagem vai ocupar mais espaço que o texto */
+    grid-template-rows: 1fr auto;
+
+}
+
+.destaque-grid .filme img {
+    /* A imagem ocupa o tamanho disponível */
+    height: 100%;
+
+    /* Min-heigh 0 é um ajuste para evitar que a imagem forçe o grid a ficar maior do que deveria.*/
+    /* Se esse espaço for menor do que o seu tamanho natural, pode encolher sem reclamar*/
+    min-height: 0;
+}
+
+.filme-destaque {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.filme-destaque h3
+{
+    padding-bottom: 0;
+}
+
+.filme-destaque p {
+    padding-top: 5px;
 }
