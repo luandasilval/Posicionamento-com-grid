@@ -1,0 +1,83 @@
+/* config gerais */
+* {
+    /* se eu colocar padding, borda-> é incluido no tamanho total do elemento, evita que aumente a caixa dos elementos  */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+    color: #222222;
+}
+
+.cabecalho {
+    text-align: center;
+    color: #ffffff;
+    background-color: #222222;
+    padding: 30px;
+
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+.conteudo {
+    margin: 50px auto;
+    width: 70%;
+}
+
+.desafio {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 40px;
+}
+
+.desafio h2 {
+    margin-bottom: 5px;
+}
+
+/* tal>taltal - filho direto, nao altera os netos */
+.desafio>p {
+    margin-bottom: 15px;
+
+}
+
+/* nivel 1 
+CATALOGO DE FILMES */
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* vriar 3 colunas cada uma ocupando uma fração igual do espaço disponivel  */
+    /* repeat() é um atalho para: grid template columns:1fr 1fr 1fr */
+
+    /* so consigo usar o gap om o flex ou grid ativado */
+    gap: 15px;
+}
+
+.filme {
+    border: 1px solid #cccccc;
+    background-color: #fff;
+
+    /* tudo que ultrapassar a caixa sera escondido/cortado */
+    overflow: hidden;
+
+}
+
+.filme img {
+    /* se o card aumentar ou diminuir, a imagem acompanha */
+    width: 100%;  /*Largura */
+
+    height: 160px;   /*Altura fixa*/
+    /* faz a imagem preencher todo o espaço definido sem ficar esticada ou deformada. se necessario, corta um pouco mais das laterais ou de cima/baixo */
+    object-fit: cover;
+
+}
+
+.filme h3,
+.filme p
+{
+    padding: 10px;
+}
